@@ -19,7 +19,6 @@ const SignUp = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      console.log(formData);
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
