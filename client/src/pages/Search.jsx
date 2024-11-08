@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
+import ListingItem from "../components/ListingItem";
 
 export default function Search() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
-   console.log(listings)
+  console.log(listings);
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -244,7 +245,11 @@ export default function Search() {
               </p>
             )}
 
-    
+            {!loading &&
+              listings &&
+              listings.map((listing) => (
+                <ListingItem key={listing._id} listing={listing} />
+              ))}
 
             {showMore && (
               <button
