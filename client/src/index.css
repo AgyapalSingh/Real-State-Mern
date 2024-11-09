@@ -12,3 +12,7 @@ body{
     background-color: rgb(241, 245, 241);
     font-family: "Montserrat", serif;
 }
+
+.main-Menu{
+    min-height: 80vh;
+}
